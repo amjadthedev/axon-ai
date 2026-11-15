@@ -1,0 +1,11 @@
+build/
+.gradle/
+out/
+*.iml
+*.iws
+.idea/
+.DS_Store
+target/
+*.jar
+!src/**/*.jar
+*.hprof

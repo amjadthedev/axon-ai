@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "axon",
+  "version": "${version}",
+  "name": "Axon AI",
+  "description": "Autonomous AI chat agent for Minecraft. Talk to an LLM through /a commands. Fabric API only — no Baritone, no Meteor Client.",
+  "authors": [
+    "amjadthedev",
+    "NOT_AHMAD_BHAI"
+  ],
+  "contact": {
+    "homepage": "https://github.com/amjadthedev/axon",
+    "sources": "https://github.com/amjadthedev/axon"
+  },
+  "license": "GPL-3.0-or-later",
+  "icon": "assets/axon/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["app.jer.axon.Axon"]
+  },
+  "mixins": ["axon.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "axon.modmenu.website": "https://github.com/amjadthedev/axon"
+      }
+    }
+  }
+}
