@@ -9,3 +9,4 @@ target/
 *.jar
 !src/**/*.jar
 *.hprof
+*.hprof

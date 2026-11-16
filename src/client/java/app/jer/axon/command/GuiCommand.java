@@ -14,7 +14,6 @@ import net.minecraft.util.Formatting;
 public class GuiCommand implements Command<ServerCommandSource> {
     @Override
     public int run(CommandContext<ServerCommandSource> commandContext) {
-        Axon.LOGGER.info("Received /a-gui command, opening configuration screen");
         MinecraftClient client = MinecraftClient.getInstance();
         client.execute(() -> client.setScreen(new AxonConfigScreen()));
         MutableText msg = Utils.prefixText("Axon AI")

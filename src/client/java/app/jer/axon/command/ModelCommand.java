@@ -16,7 +16,6 @@ public class ModelCommand implements Command<ServerCommandSource> {
     @Override
     public int run(CommandContext<ServerCommandSource> commandContext) {
         String requestedModel = StringArgumentType.getString(commandContext, "model").trim();
-        Axon.LOGGER.info("Received /a-model with raw input: '{}'", requestedModel);
         if (requestedModel.isEmpty()) {
             MutableText msg = Utils.prefixText("Axon AI")
                     .append(Text.literal("Usage: /a-model <model-id> or /a-model auto").formatted(Formatting.RED));
@@ -26,7 +25,6 @@ public class ModelCommand implements Command<ServerCommandSource> {
         if ("auto".equalsIgnoreCase(requestedModel) || "default".equalsIgnoreCase(requestedModel) || "none".equalsIgnoreCase(requestedModel)) {
             String defaultModel = LLMService.resetModelToProviderDefault();
             if (defaultModel != null) {
-                Axon.LOGGER.info("Model reset to provider default: {}", defaultModel);
                 MutableText msg = Utils.prefixText("Axon AI")
                         .append(Text.literal("Model reset to provider default: ").formatted(Formatting.DARK_GREEN))
                         .append(Text.literal(defaultModel).formatted(Formatting.GREEN));
@@ -39,7 +37,6 @@ public class ModelCommand implements Command<ServerCommandSource> {
             return 1;
         }
         LLMService.setModel(requestedModel);
-        Axon.LOGGER.info("Model changed to {}", LLMService.getModel());
         MutableText msg = Utils.prefixText("Axon AI")
                 .append(Text.literal("Model set to ").formatted(Formatting.DARK_GREEN))
                 .append(Text.literal(LLMService.getModel()).formatted(Formatting.GREEN));

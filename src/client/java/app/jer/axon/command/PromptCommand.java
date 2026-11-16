@@ -16,10 +16,8 @@ public class PromptCommand implements Command<ServerCommandSource> {
     @Override
     public int run(CommandContext<ServerCommandSource> commandContext) {
         String message = StringArgumentType.getString(commandContext, "message");
-        Axon.LOGGER.info("Received /a message ({} chars), queueing for agent", message.length());
 
         if (LLMService.getApi() == null) {
-            Axon.LOGGER.warn("Rejected /a message: no API key configured");
             MutableText msg = Utils.prefixText("Axon AI")
                     .append(Text.literal("No API key set. Use /a-key <key> [provider]").formatted(Formatting.RED));
             Axon.chatMessage(msg);

@@ -7,10 +7,6 @@ import org.jetbrains.annotations.Nullable;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.Duration;
@@ -220,8 +216,6 @@ public class LLMService {
             updateProperty(PROVIDER_KEY, detected);
             Axon.LOGGER.info("Auto-detected provider '{}' from API key prefix", detected);
         }
-        // Build client - we'll keep api null for now since simple-openai builder
-        // may need provider-specific setup; the chat will work once we add full client
         updateProperty(KEY, key);
     }
 

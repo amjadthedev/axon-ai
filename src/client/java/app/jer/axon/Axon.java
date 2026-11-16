@@ -14,12 +14,10 @@ public class Axon implements ClientModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static void chatMessage(Text message) {
-        MinecraftClient.getInstance().execute(() -> {
-            MinecraftClient client = MinecraftClient.getInstance();
-            if (client != null && client.player != null) {
-                client.player.sendMessage(message, false);
-            }
-        });
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client != null && client.player != null) {
+            client.player.sendMessage(message, false);
+        }
     }
 
     public static void chatMessage(String message) {
@@ -27,12 +25,10 @@ public class Axon implements ClientModInitializer {
     }
 
     public static void statusOverlay(Text message) {
-        MinecraftClient.getInstance().execute(() -> {
-            MinecraftClient client = MinecraftClient.getInstance();
-            if (client != null && client.player != null) {
-                client.player.sendMessage(message, true);
-            }
-        });
+        MinecraftClient client = MinecraftClient.getInstance();
+        if (client != null && client.player != null) {
+            client.player.sendMessage(message, true);
+        }
     }
 
     public static void statusOverlay(String message) {

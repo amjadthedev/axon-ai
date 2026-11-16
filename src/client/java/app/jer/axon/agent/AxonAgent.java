@@ -1,7 +1,6 @@
 package app.jer.axon.agent;
 
 import app.jer.axon.Axon;
-import app.jer.axon.service.LLMService;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
@@ -19,7 +18,6 @@ public class AxonAgent {
 
     public static void userMessage(String text) {
         if (!initialized) {
-            LOGGER.warn("Axon AI agent not initialized");
             return;
         }
         LOGGER.info("Axon AI user message queued ({} chars)", text.length());

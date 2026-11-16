@@ -15,12 +15,12 @@ public class KeyCommand implements Command<ServerCommandSource> {
     @Override
     public int run(CommandContext<ServerCommandSource> commandContext) {
         String key = StringArgumentType.getString(commandContext, "key").trim();
-        Axon.LOGGER.info("Received /a-key command (key length {}).", key.length());
 
         String provider = null;
         try {
             provider = StringArgumentType.getString(commandContext, "provider").trim();
         } catch (IllegalArgumentException ignored) {
+            // No provider argument given - keep current provider
         }
 
         if (provider != null && !LLMService.isSupportedProvider(provider)) {
